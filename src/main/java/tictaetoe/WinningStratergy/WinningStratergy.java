@@ -4,5 +4,7 @@ import tictaetoe.Model.Board;
 import tictaetoe.Model.Player;
 
 public interface WinningStratergy {
-    public boolean checkwinner(Player p , Board b) ;
+    public boolean checkwinner(Player p , Board b) {
+        return false ;
+    }
 }

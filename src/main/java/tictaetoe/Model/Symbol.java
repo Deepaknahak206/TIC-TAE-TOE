@@ -5,4 +5,7 @@ import lombok.Data;
 
 public class Symbol {
     private char symbol ;
+    public Symbol(char s){
+        this.symbol = s ;
+    }
 }

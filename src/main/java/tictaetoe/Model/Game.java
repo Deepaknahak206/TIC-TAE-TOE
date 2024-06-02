@@ -1,13 +1,19 @@
 package tictaetoe.Model;
 
+import ch.qos.logback.core.joran.spi.ElementPath;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import tictaetoe.ExceptionHandling.InvalidBotcount;
 import tictaetoe.WinningStratergy.WinningStratergy;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-@Data
+@Setter
+@Getter
 public class Game {
+    @Setter
     private Board board ;
     private  List<Player> players ;
     List<Move> moves ;
@@ -25,12 +31,14 @@ public class Game {
        this.winner = null ;
        this.moves = new ArrayList<>() ;
    }
+   public void makeMove(){
+       Player currrentplayer1 = players.get(Nextplayerturn) ;
+       System.out.println("Current turn is "+ currrentplayer1.getName());
+       Move m = currrentplayer1.makemove(board) ;
+   }
     public  static  Builder getInstanceBuider(){
 
         return  new Builder();
-    }
-    public void setBoard(Board board){
-       this.board= board ;
     }
 
     public Board getBoard() {
@@ -41,7 +49,8 @@ public class Game {
       private  List<Player> players ;
       private int dimension ;
       private  List<WinningStratergy> winningStratergies ;
-      public void validate() throws InvalidBotcount {
+        private char[] symbol ;
+        public void validate() throws InvalidBotcount {
           int botcount = 0 ;
           for(Player p: players){
               if(p.getPlayerType().equals(PlayerType.BOT)){
@@ -54,6 +63,15 @@ public class Game {
           if(players.size()!=dimension-1){
               throw new IllegalArgumentException();
           }
+          // Symbol Validation
+       HashSet<Character> hs = new HashSet<>() ;
+        for(char s:symbol){
+            if(hs.contains(s)){
+                throw new IllegalArgumentException("Dupliacte Symbol is present") ;
+            }else {
+                hs.add(s) ;
+            }
+        }
       }
       public Game build() throws InvalidBotcount {
           validate();
