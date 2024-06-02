@@ -1,2 +1,7 @@
-package tictaetoe.Model;public enum CellState {
+package tictaetoe.Model;
+
+public enum CellState {
+    Empty ,
+    Filled ,
+    Blocked
 }

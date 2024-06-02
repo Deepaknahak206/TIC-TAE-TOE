@@ -1,2 +1,5 @@
-package tictaetoe.ExceptionHandling;public class InvalidBotcount {
+package tictaetoe.ExceptionHandling;
+
+public class InvalidBotcount extends Exception{
+
 }

@@ -1,2 +1,13 @@
-package tictaetoe.WinningStratergy;public class RowWinningStratergy {
+package tictaetoe.WinningStratergy;
+
+import tictaetoe.Model.Board;
+import tictaetoe.Model.Player;
+
+public class RowWinningStratergy implements WinningStratergy{
+
+
+    @Override
+    public boolean checkwinner(Player p, Board b) {
+        return false;
+    }
 }

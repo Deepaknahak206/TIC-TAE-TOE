@@ -1,2 +1,6 @@
-package tictaetoe.Model;public enum PlayerType {
+package tictaetoe.Model;
+
+public enum PlayerType {
+    BOT ,
+    Human
 }

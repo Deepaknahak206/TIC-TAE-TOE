@@ -1,2 +1,7 @@
-package tictaetoe.Model;public enum BotDifficulty {
+package tictaetoe.Model;
+
+public enum BotDifficulty {
+    Easy,
+    Medium ,
+    Hard
 }
