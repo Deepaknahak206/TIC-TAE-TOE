@@ -6,8 +6,4 @@ import tictaetoe.Model.Player;
 public class RowWinningStratergy implements WinningStratergy{
 
 
-    @Override
-    public boolean checkwinner(Player p, Board b) {
-        return false;
-    }
 }

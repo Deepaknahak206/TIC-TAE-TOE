@@ -26,7 +26,7 @@ public class GameController {
     }
     public  void makeMove(Game game){
         //TODO
-        game.make
+//        game.make
     }
     public GameStatus checkstatus(Game g){
         return null ;

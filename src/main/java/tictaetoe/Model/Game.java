@@ -31,10 +31,36 @@ public class Game {
        this.winner = null ;
        this.moves = new ArrayList<>() ;
    }
+   public boolean validate(Move m){
+       int row = m.getCell().getRow() ;
+       int col = m.getCell().getCol() ;
+       if(row>board.getSize()){
+           return false ;
+       }
+       if(col>board.getSize()){
+           return false ;
+       }
+       return board.getBoard().get(row).get(col).getCellState().equals(CellState.Empty) ;
+   }
    public void makeMove(){
        Player currrentplayer1 = players.get(Nextplayerturn) ;
        System.out.println("Current turn is "+ currrentplayer1.getName());
        Move m = currrentplayer1.makemove(board) ;
+       if(!validate(m)){
+           System.out.println("invalid Move");
+           return ;
+       }
+
+       int row = m.getCell().getRow() ;
+       int col = m.getCell().getCol() ;
+       Cell cellToupdate = board.getBoard().get(row).get(col) ;
+       cellToupdate.setCellState(CellState.Filled);
+       cellToupdate.setPlayer(currrentplayer1);
+
+       Move Undomoves = new Move(cellToupdate,currrentplayer1) ;
+      moves.add(Undomoves) ;
+      Nextplayerturn+=1 ;
+      Nextplayerturn %=players.size() ;
    }
     public  static  Builder getInstanceBuider(){
 

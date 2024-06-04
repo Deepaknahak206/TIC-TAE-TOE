@@ -20,6 +20,10 @@ public class Player {
     }
     public Move makemove(Board b){
         System.out.println("defined row");
+        int row = sc.nextInt();
+        System.out.println("defined col");
+        int col = sc.nextInt();
 
+        return new Move(new Cell(row,col),this) ;
     }
 }
