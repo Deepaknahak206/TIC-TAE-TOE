@@ -57,10 +57,25 @@ public class Game {
        cellToupdate.setCellState(CellState.Filled);
        cellToupdate.setPlayer(currrentplayer1);
 
-       Move Undomoves = new Move(cellToupdate,currrentplayer1) ;
-      moves.add(Undomoves) ;
+       Move Finalmoves = new Move(cellToupdate,currrentplayer1) ;
+      moves.add(Finalmoves) ;
       Nextplayerturn+=1 ;
       Nextplayerturn %=players.size() ;
+        if(checkWinner(Finalmoves, board)){
+            gameStatus = GameStatus.Win ;
+            winner = currrentplayer1 ;
+        }else if(moves.size()==board.getSize()*board.getSize()) {
+            gameStatus = GameStatus.Draw;
+        }
+            System.out.println("Player"+ currrentplayer1.getName()+ "Moved at"+ row + " "+col) ;
+   }
+   public boolean checkWinner(Move m ,Board b ){
+       for(WinningStratergy w : winningStratergies){
+           if(w.checkWinner( m, b)){
+               return true ;
+           }
+       }
+       return false ;
    }
     public  static  Builder getInstanceBuider(){
 
