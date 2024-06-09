@@ -25,18 +25,17 @@ public class GameController {
         game.getBoard().printBoard(); ;
     }
     public  void makeMove(Game game){
-        //TODO
-//        game.make
+        game.makeMove();
     }
     public GameStatus checkstatus(Game g){
-        return null ;
+        return g.getGameStatus() ;
         //Implement Tomorrow
     }
     public Player getWinner(Game g){
         return g.getWinner() ;
     }
     public  void undo(Game g){
-        // TODO
+
     }
 }
 

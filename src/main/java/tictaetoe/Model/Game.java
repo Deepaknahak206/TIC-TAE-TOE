@@ -105,14 +105,14 @@ public class Game {
               throw new IllegalArgumentException();
           }
           // Symbol Validation
-       HashSet<Character> hs = new HashSet<>() ;
-        for(char s:symbol){
-            if(hs.contains(s)){
-                throw new IllegalArgumentException("Dupliacte Symbol is present") ;
-            }else {
-                hs.add(s) ;
-            }
-        }
+//       HashSet<Character> hs = new HashSet<>() ;
+//        for(char s:symbol){
+//            if(hs.contains(s)){
+//                throw new IllegalArgumentException("Dupliacte Symbol is present") ;
+//            }else {
+//                hs.add(s) ;
+//            }
+//        }
       }
       public Game build() throws InvalidBotcount {
           validate();
